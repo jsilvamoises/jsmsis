@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="estilos.css"/>
+        <f:metadata>
+            <f:viewParam name="id" value="#{fotoProfissoesBean.fotosProfissoes}"/>
+        </f:metadata>
+    </h:head>
+    <h:body>
+        <h:form id="frm" enctype="multipart/form-data">
+            <nav>
+                <ui:include src="../restrict/menu.xhtml"/>
+            </nav>
+            
+            <p:growl id="messages" showDetail="true" />
+            <p:toolbar class="toolbar-header" >
+                <f:facet name="left" >
+                    <h1>Cadastro de Fotos e profissões</h1>
+                    <p:button value="Listagem" outcome="/restrict/lista_cadastro_profissoes"/>
+                </f:facet>
+                <f:facet name="right">
+                    
+                    
+                </f:facet>
+            </p:toolbar>
+            <p:fieldset style="width: 78%!important; margin: 0 auto!important; text-align: center!important" >                
+                <p:inputText placeholder="Titulo" value="#{fotoProfissoesBean.fotosProfissoes.titulo}" style="width: 99%; margin: 0 auto!important; padding-top: 10px"/><br/>
+                <p:inputText placeholder="Sub Titulo" value="#{fotoProfissoesBean.fotosProfissoes.subtitulo}" style="width: 99%; margin: 0 auto!important"/>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Aparecer na primeira pagina"/>
+                    <p:selectBooleanButton offLabel="Não" onLabel="Sim" value="#{fotoProfissoesBean.fotosProfissoes.isFistPage}" />
+                </h:panelGrid>
+                <p:editor id="editor" widgetVar="editorWidget" style="width: 100%; margin: 0 auto!important; " value="#{fotoProfissoesBean.fotosProfissoes.texto}" immediate="true"/>
+                <p:panelGrid columns="3" style="width: 100%; height: 60px">
+                    <img id="foto" src="#{fotoProfissoesBean.fotosProfissoes.imagem.imagemCodificada}" style="width: 100px"/>
+                    <h:panelGroup>
+                        <p:fileUpload value="#{fotoProfissoesBean.upload}" mode="simple" skinSimple="true" label="Buscar"/>
+                        <p:commandButton value="Carregar" ajax="false" action="#{fotoProfissoesBean.enviarImagem()}" disabled="false" update=":frm:foto"/> 
+                    </h:panelGroup>
+                    <p:commandButton value="Salvar" action="#{fotoProfissoesBean.save()}" update="@form"/>
+                </p:panelGrid>
+
+            </p:fieldset>
+            
+            <p:toolbar>
+                <f:facet name="right">
+                    
+                </f:facet>
+            </p:toolbar>
+
+
+
+        </h:form>
+
+
+    </h:body>
+</html>
+

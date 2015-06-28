@@ -1,0 +1,84 @@
+*{padding: 0;margin: 0; }
+input[type=text]{text-transform: uppercase}
+/*<!--IDS-->*/
+#bloco{width: 33.333333%; background-color: coral; height: 100%;}
+#centro{ width: 90%; min-height: 750px; margin: 0 auto; position: relative}
+#destaques{background-color: white; width: 400px;position: absolute; opacity: 1;z-index: 1;opacity: 1; left: 5%}
+#comentario{padding: 5px;margin-top: 40px; width: 90%;background-color: #f9f9f9;min-height: 300px; border-radius: 5px}
+#comentario h1{text-align: center}
+#comentario #nomeUsuario{color: #ff6600!important}
+#comentados{margin-left: 2%}
+#site nomeUsuario{color: #ff6600 }
+#login{background-color:  #ff6600; width: 90%; height: 60px;margin: 0 auto;}
+#clear{clear: both}
+#esquerda{float: left; width: 70%; background-color: white;min-height: 750px}
+#direita{float: right; width: 90%;background-color: #f9f9f9;min-height: 300px; border-radius: 5px}
+#label-pesquisar{color: white!important}
+#logo{position: absolute; width: 100px; height: 150px;background-image: url(../images/logo/emprega.png); background-repeat: no-repeat; left: 12%;top: 20px; z-index: 2; resize: both; background-size: 100% ;border-radius: 5px}
+#lista-destaque{border: 0px!important;text-decoration: none!important; list-style-type: none!important; }
+#pagina2{min-height: 600px; width: 100%;background-image:  url(../images/icon/dot/pontoPreto.png); background-color: #ff6600; }
+#pagina2-centro{width: 90%; margin: 0 auto; min-height: 300px; padding-top:5%; border: none;}
+#pesquisar{width: 500px; height: 150px; background-color: black; top: 50%; right: 5%;position: absolute;padding: 10px;border-radius: 5px; color: white!important; opacity: 0.8; z-index: 3}
+#perfil-conteudo{min-height: 750px; width: 90%;margin: 0 auto; background-color: activecaption}
+#pesquisa-perfil{width: 100%;  }
+#pesquisa-perfil2{margin-left: 50%;width: 100%; margin: 30px auto!important;  }
+#rodape{background-image: url(../images/icon/dot/PontoLaranja.png);clear: both;background-color:  black; width: 100%; height: 600px; position: static}
+#separador{background-color: #ff6600;height: 10px; width: 100%}
+#slides {isplay:none;}
+#topo{background-image:  url(../images/icon/dot/pontoPreto.png);background-color: #ff6600; width: 100%;height: 60px; border-bottom: 1px black solid; z-index: 3}
+#ultimoscadastrados{padding-top: 40px;background-color: #222; width: 100%; min-height: 250px; margin: 0 auto}
+#container{min-height: 900px!important}
+#textoconvite{background-image: url(../images/icon/dot/PontoLaranja.png);width: 45%; min-height: 150px; background-color: black; top: 15%; right: 9%;position: absolute;padding: 10px;border-radius: 5px; color: #ff6600!important; opacity: 1;z-index: 3; color: darkgrey!important; font-weight: bold;font-size: 40px}
+#ui-fieldset-content:td{color: white!important}
+/*WELCOME-PAGE*/
+#welcome-top{background-color: #f9f9f9; height: 100px; width: 100%}
+#welcome-subtop{background-color: #222;width: 100%;height: 300px}
+/*<!--CLASSES-->*/
+.btn-buscar{background-color: #ff6600!important; background-image: none!important; background-image: url(../images/icon/24/binoculo24.png)!important; background-repeat: no-repeat;  margin: 0 auto!important}
+.column10{width: 10%!important}
+.column20{width: 20%!important}
+.column30{width: 30%!important}
+.column40{width: 40%!important}
+.column50{width: 50%!important}
+.column60{width: 60%!important}
+.column70{width: 70%!important}
+.column80{width: 80%!important}
+.column90{width: 90%!important}
+.column95{width: 95%!important}
+.column98{width: 98%!important}
+.column100{width: 100%!important}
+.background{background-image: url(../images/background/background.png);}
+.email{text-transform: lowercase!important}
+.field-panel-grid-95{width: 95%!important}
+.frmCadastro{width: 60%; margin: 30px auto; }
+.colunaA{min-width: 15%;width: 15%!important; text-align: left!important}
+.colunaB{width: 70%!importanttext-align: left!important}
+/*.default{width: 90%!important; margin: 0 auto!important}*/
+.galeria{width: 100%!important; resize:both!important}
+.panelgrid{width: 100%!important}
+.pesquisa-coluna-um{width: 15%!important; text-align: center!important}
+.pesquisa-coluna-dois{width: 25%!important}
+.pesquisa-coluna-tres{width: 70%!important; text-align: justify; margin-top: 0; font-size: 12px}
+.foto{border-radius: 100px!important; height: 50px!important;width: 50px!important}
+.heigth-padrao{}
+.lista{list-style-type: none!important; border: none!important}
+.novo-usuario{background-color: #222; padding: 10px; margin-left: 2px;border-right: 2px solid #000000; border-left: 2px solid #000000}
+.transparente{background-color: transparent!important; background-image: none!important}
+.toolbar-transparente{background-color: transparent!important; background-image: none!important; border: none!important; border: none!important}
+.ui.datalist-data{border: 0px!important}
+.ui-datalist-content{border: 0px;}
+.ui-datascroller-content{border: 0px;}
+.ui-panelgrid-content{border: 0px;}
+.ui-galleria-content{border: 0px;}
+.ui-carousel-content{border: 0px!important;}
+.ui-fieldset{border-radius: 10px!important}
+.ui-inputtext{border-radius: 10px!important}
+.ui-inputtextarea{border-radius: 10px!important; margin-top: 10px!important}
+.ui-password{border-radius: 10px!important; background-color:#ece3a5!important}
+.ui-inputmask{border-radius: 10px!important;}
+.ui-button{border-radius: 5px!important;}
+.ui-selectonemenu{border-radius: 2px 0  0 2px!important;}
+.ui-datalist-data {
+   overflow:auto;
+}
+.write-fonte{color: white!important}

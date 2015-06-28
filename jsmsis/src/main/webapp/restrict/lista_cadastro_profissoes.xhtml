@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="estilos.css"/>
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{fotoProfissoesBean.init()}"/>
+        </f:metadata>
+        <style>
+            .colunaUm{width: 10%}
+            .colunaDois{width: 80%}
+            .colunaTres{width: 10%}
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <nav>
+                <ui:include src="menu.xhtml"/>
+            </nav>
+            <p:toolbar  class="toolbar-header">
+                <f:facet name="left" >
+                    <h1>Lista de Fotos e profissões</h1>
+                    <p:button value="Novo" outcome="/restrict/cadastro_fotos_profissoes"/>
+                </f:facet>
+                <f:facet name="right">
+                    
+                </f:facet>
+            </p:toolbar>
+            
+            <ui:repeat value="#{fotoProfissoesBean.fotos}" var="fotos" >
+                <p:panelGrid columns="3" style="width: 80%; padding: 20px; margin: 0 auto" columnClasses="colunaUm, colunaDois, colunaTres">
+                    <img class="img-profissoes-grande"  src="data:#{fotos.imagem.contentType};base64,#{fotos.imagem.base64Encod}" />
+                    <h:panelGrid columns="1" >
+                        <h:outputText value="#{fotos.titulo}"/>
+                        <h:outputText value="#{fotos.subtitulo}"/>
+                        <h:outputText value="Aparece na primeira pagina #{fotos.isFistPage==true?'[ Sim ]':'[ Não ]'}"/>
+                        <h:outputText value="#{fotos.texto}" escape="false"/>
+                    </h:panelGrid>
+                    <p:button value="Editar" icon="ui-icon-pencil" outcome="/restrict/cadastro_fotos_profissoes">
+                        <f:param name="id" value="#{fotos.id}"/>
+                    </p:button>
+                    
+                </p:panelGrid>
+            </ui:repeat>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <div id="topo">
+
+        <ui:insert name="top">
+            <div id="menu">
+                <div id="home">
+                    <h:link outcome="/index">
+                        <p:graphicImage library="images/icon/64" name="home-4-64-black.png" alt="Home" style="padding-top: 7px"/><br/>
+
+                    </h:link>
+                    <h:outputText value="Home" style="color: white; width: 100%!important; text-align: center!important"/>
+                </div>
+            </div>
+
+        </ui:insert>
+
+    </div>
+</ui:composition>
+

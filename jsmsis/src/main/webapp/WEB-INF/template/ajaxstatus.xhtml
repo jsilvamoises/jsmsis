@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <p:ajaxStatus >
+
+        <f:facet name="default">
+            <h:inputHidden/>
+            <!--<h:outputText value="Status: StandBy" />-->
+        </f:facet>
+
+        <f:facet name="start">
+            <p:dialog  visible="true" >
+                <h:panelGrid columns="1" style="text-align: center; z-index: 6!important">
+                    <h:outputText value="Aguarde! processando requisição" style="color: #036fab"/>
+                    <p:graphicImage library="images/gifanimado" name="circleloadinganimation.gif" style="width: 120px; height: 120px" />
+                </h:panelGrid>                
+            </p:dialog>
+            
+        </f:facet>
+
+        <f:facet name="complete">
+            <h:inputHidden/>
+            <!--<h:outputText value="Status: Completed" />-->
+        </f:facet>
+    </p:ajaxStatus>
+</ui:composition>
+

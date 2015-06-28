@@ -1,0 +1,81 @@
+*{padding: 0; margin: 0}
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//                         CLASSE DE CSS                                       //
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+.campo{}
+.label{width: 150px; text-align: right; padding-right: 20px!important}
+.linhas{height: 40px}
+.img-profissoes-grande{width: 80%; border-radius: 50%;border: 2px solid darkcyan}
+.img-profissoes-media{width: 60%; border-radius: 50%;border: 2px solid darkcyan}
+.img-profissoes-mini{width: 10%; border-radius: 50%;border: 2px solid darkcyan}
+.toolbar-header{height: 80px; margin-top: 1px; width: 80%; margin: 0 auto; margin-bottom: 40px}
+.ui-inputtext {border-radius: 10px!important}
+.ui-inputmask{border-radius: 10px!important}
+.ui-calendar{border-radius: 10px!important}
+.ui-password{border-radius: 10px!important}
+.ui-inputfield{border-radius: 10px!important}
+.ui-fieldset{border-radius: 10px!important; border-color:darkcyan }
+.ui-button{border-radius: 10px!important; text-align: center!important; background-image: none!important; background-color: darkcyan!important; color: white!important}
+.ui-toolbar{border-color: darkcyan!important}
+.ui-menubar{border-color: darkcyan!important}
+
+
+#cadastro-pesssoa-fisica{width: 950px; margin: 0 auto; }
+#cp{
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005!important;
+}
+#home{background-color:cadetblue  ;text-align: center; border-left: 1px solid white;border-right: 2px solid white; height: 100px; width: 100px; }
+#menu{width: 900px; margin: 0 auto}
+#topo{background-color: darkcyan; border-bottom: 20px solid cadetblue; height: 100px; box-shadow: 1px 1px 1px #AFAFAF}
+#rodape{border-top: 20px solid cadetblue;margin-top: 300px;background-color: darkcyan; height: 400px; box-shadow: 1px 1px 1px #AFAFAF}
+
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  20px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #999999;
+}
+nav{width: 80%; margin: 0 auto!important; padding-bottom: 60px}
+
+#buscar{background-color: darkcyan; width: 50%; margin: 60px auto; padding: 20px;border-radius: 10px; opacity: 1;box-shadow: 2px 2px 1px #999999;}
+#buscar h5{color: white; font-size: 20px;  margin-bottom: 5px}
+#circulo-blue{background-color: darkcyan; border-radius: 50px; height: 80px;width: 80px; float: left; text-shadow: 3px 3px 2px #999999}
+.circulo-blue-interno{background-color: white; border-radius: 50px; height: 60px;width: 60px; margin: 10px auto }
+.circulo-blue-interno-foto{background-color: white; border-radius: 50px; height: 60px;width: 60px; margin: 0px auto }
+#foto-logado-div{margin-top: 0;width: 45px;height: 45px;background-color: white; float: left;margin-right: 10px; border-radius: 50%}
+#form-foto-perfil{background-color: black}
+.foto-logado{margin-top: 0;width: 45px;height: 45px; border-radius: 50%}
+.index-btnbuscar{color: darkcyan!important;background-color: white!important;background-image: none!important}
+#slide-site{margin-bottom: 20px}
+#logar{float: right;margin: 10px 20px; color: white;}
+#sesao-login a {color: white!important;text-decoration: none;}
+#novos{margin: 50px auto}
+#pageone{margin-top: 80px; color: #999999; text-align: center}
+#info-site{margin: 20px auto;background-color:darkcyan; padding-top: 40px; padding-bottom: 40px;box-shadow: 2px 2px 1px #999999 }
+#rodape-conteudo{height: 120px; background-color: darkcyan;text-align: center; padding-top: 40px;padding-bottom: 60px}
+#texto-chamada{font-size: 40px}
+#toolbar{background-color: darkcyan; height: 60px; border-radius: 0  0 10px 10px; text-shadow: 2px 2px 1px #000000;box-shadow: 2px 2px 1px #999999}
+#tela-login{background-color: darkcyan; min-height: 100px; width: 300px; margin: 10% auto; border-radius: 10px; text-align: center}
+#tela-login-logo{background-color: white; top: 20px; width: 100%; height: 60px; position: relative; background-image: url(../images/icon/64/login_64.png); background-size: 50px; background-repeat: no-repeat;background-position: center; margin-bottom: 40px}
+#tela-login-panel{padding:  200px!important; left: 20px; text-align: center; width: 100%!important; margin: 0 auto}
+#troca-foto{margin: 0 auto; width: 100%; text-align: center!important}
+#page-busca{margin-top: 40px}
+.foto-perfil{width: 150px; height: 150px; border-radius: 50%; border-color: darkcyan; border: 5px solid darkcyan; box-shadow: 2px 2px 2px #222}
+.login-panel{width: 100%!important}
+.hidden-image{margin-left: -1000px}
+.separador{background-color:#000000; width: 100%; height: 20px }
+.toolbar-full-transparent{background-color: darkcyan!important;background-image: none!important; margin-right: 10px!important; border: none!important}
+.ui-link{text-decoration: none }
+
+
+

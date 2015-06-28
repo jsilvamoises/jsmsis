@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Bem Vindo!!!!</title>
+        <h:outputStylesheet name="css/style.css"/>
+        <h:outputStylesheet name="css/estilos.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="site">
+            <!--<ui:include src="WEB-INF/template/toolbar.xhtml"/>-->
+            <p:growl id="msglogin"/>
+            <section id="tela-login">
+                <div id="tela-login-logo">                    
+                </div>
+                 
+                <h:panelGrid columns="1" id="tela-login-panel" styleClass="login-panel">
+                   
+                    <p:inputText id="login" placeholder="LOGIN" value="#{usuarioBean.usuario.login}" required="true" />
+                    <p:password id="senha" placeholder="SENHA" value="#{usuarioBean.usuario.senha}" required="true"/>
+                    <p:commandButton styleClass="index-btnbuscar" value="Enviar" style="margin-bottom: 10px; margin-top: 10px; float: right; margin-right:35px " action="#{usuarioBean.validarSenha()}" update=":site:msglogin" />
+                </h:panelGrid>                
+            </section>
+            <!--<ui:include src="WEB-INF/template/pagina1.xhtml"/>-->
+        </h:form>
+    </h:body>
+</html>
+

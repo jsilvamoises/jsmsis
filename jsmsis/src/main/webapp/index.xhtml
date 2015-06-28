@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"          
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pa="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>pulos.com</title>
+        <h:outputStylesheet library="css" name="estilos.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <!--TOPO-->
+            <header>
+               <ui:include src="WEB-INF/template/topo.xhtml"/>  
+            </header>
+           
+            <!--CONTEUDO-->
+            <section id="area-pesquisa">
+                <div class="ui-grid ui-grid-responsive">
+                    <div class="ui-grid-row">
+                        <div  class="ui-grid-col-1"/>
+                        <div id="pageone" class="ui-grid-col-10">
+                            <section id="texto-chamada">
+                                Aqui vai um texto super criativo<br/>
+                                que vai te chamar atenção!
+                            </section>
+                            <section id="buscar">
+                                <h5>Diga-nos, qual bico você procura?</h5>
+                                <h:panelGrid columns="1" style="width: 100%">
+                                    <h:inputText id="index-pesquisa" pa:placeholder="Ex. Pedreiro São Paulo"  style="width: 99%;border-radius: 5px;margin-bottom: 10px; height: 30px">
+
+                                    </h:inputText>
+
+
+
+                                    <h:panelGroup  style="width: 100%; text-align: center!important; margin-top: 5px!important">
+                                        <h:selectOneMenu style="font-size: 20px;width: 20%; height: 30px; float: left">
+                                            <f:selectItem itemLabel="UF" />
+                                            <f:selectItems value="#{beanEstado.estados}" var="est" itemLabel="#{est.sigla}" itemValue="#{est}" />
+                                        </h:selectOneMenu>
+
+                                        <h:inputText style="width: 70%; height: 30px; float: right; border-radius: 5px" pa:placeholder="CIDADE"/>
+
+                                    </h:panelGroup> 
+                                    <p:button styleClass="index-btnbuscar" value="Buscar" style="width: 100px; float: right;margin-top: 10px" />
+                                </h:panelGrid>
+
+                            </section>
+                        </div>
+                        <div class="ui-grid-col-1"/>
+                    </div>
+                </div>
+            </section>
+            
+            <!--UTIMOS CADASTRADOS-->
+            <section id="novos-cadastrados">
+                <ui:include src="WEB-INF/template/ultimos_cadastrados.xhtml"/>
+            </section>
+            
+            <span style="padding-bottom: 100px"/>
+            <!--INFO-SITE-->
+            <section id="informacao-site">
+                <ui:include src="WEB-INF/template/info_site.xhtml"/>
+            </section>
+            <!--PROFISSOES-->
+            <section id="profissoes">
+                <ui:include src="WEB-INF/template/profissoes.xhtml"/>
+            </section>
+           <!--RODAPE-->
+           <footer>
+               <ui:include src="WEB-INF/template/rodape.xhtml" />
+           </footer>
+            
+            
+
+        </h:form>
+    </h:body>
+</html>
+

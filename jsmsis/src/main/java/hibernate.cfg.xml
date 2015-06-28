@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+<!--    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/pulos</property>
+    <property name="hibernate.connection.username">admin</property>-->
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sunrise?createDatabaseIfNotExist=true</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">1982</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.connection.pool_size">20</property>    
+    
+    
+    <mapping class="com.sunrise.bicus.model.Administrador"/>
+    <mapping class="com.sunrise.bicus.model.Comentarios"/>
+    <mapping class="com.sunrise.bicus.model.ContasReceber"/>
+    <mapping class="com.sunrise.bicus.model.Endereco"/>
+    <mapping class="com.sunrise.bicus.model.Estado"/>
+    <mapping class="com.sunrise.bicus.model.FormaPagamento"/>
+    <mapping class="com.sunrise.bicus.model.Imagem"/>
+    <mapping class="com.sunrise.bicus.model.Juridica"/>
+    <mapping class="com.sunrise.bicus.model.Login"/>
+    <mapping class="com.sunrise.bicus.model.Mensagem"/>
+    <mapping class="com.sunrise.bicus.model.NivelAcessoAdm"/>
+    <mapping class="com.sunrise.bicus.model.Pais"/>
+    <mapping class="com.sunrise.bicus.model.PessoaFisica"/>
+    <mapping class="com.sunrise.bicus.model.Plano"/>
+    <mapping class="com.sunrise.bicus.model.PlanoUsuario"/>
+    <mapping class="com.sunrise.bicus.model.StatusPlanoUser"/>
+    <mapping class="com.sunrise.bicus.model.Venda"/>
+  </session-factory>
+</hibernate-configuration>

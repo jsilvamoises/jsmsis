@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <div class="ui-grid ui-grid-responsive" style="padding-top: 100px">
+        <!--UM-->
+       
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-2"></div>
+            <div id="foto-profissao" class="ui-grid-col-3" style="text-align: center">
+                
+                <img class="img-profissoes-grande" src="data:#{gerenciadorConteudoBean.fotoUm.imagem.contentType};base64,#{gerenciadorConteudoBean.fotoUm.imagem.base64Encod}" />
+                <!--<h:graphicImage library="images/profissoes" name="parede-600x600.jpg" style="width: 80%; border-radius: 50%"/>-->
+            </div>
+            <div id="texto-profissao" class="ui-grid-col-5" style="color: #AFAFAF; size: 60px!important;padding: 20px">
+                <header>
+                    <h1>#{gerenciadorConteudoBean.fotoUm.titulo}</h1>
+                    <h2>#{gerenciadorConteudoBean.fotoUm.subtitulo}</h2>
+                </header>
+                <p>    
+                    <h:outputText escape="false" value="#{gerenciadorConteudoBean.fotoUm.texto}"  />
+                </p>
+            </div>
+            <div class="ui-grid-col-2">
+
+            </div>
+        </div>
+        <!--DOIS-->
+        <div class="ui-grid-row" style="padding-top: 100px">
+            
+            <div class="ui-grid-col-2"></div>
+            <div id="texto-profissao" class="ui-grid-col-5" style="color: #AFAFAF; size: 60px!important;padding: 20px">
+                <header>
+                    <h1>#{gerenciadorConteudoBean.fotoDois.titulo}</h1>
+                    <h2>#{gerenciadorConteudoBean.fotoDois.subtitulo}</h2>
+                </header>
+                <p>    
+                    <h:outputText escape="false" value="#{gerenciadorConteudoBean.fotoDois.texto}"/>
+                </p>
+
+            </div>
+            <div id="foto-profissao" class="ui-grid-col-3" style="text-align: center">
+                <img class="img-profissoes-grande" src="data:#{gerenciadorConteudoBean.fotoDois.imagem.contentType};base64,#{gerenciadorConteudoBean.fotoDois.imagem.base64Encod}" style="width: 80%; border-radius: 50%"/>
+                <!--<h:graphicImage library="images/profissoes" name="unhas600.jpg" style="width: 80%; border-radius: 50%"/>-->
+            </div>
+            <div class="ui-grid-col-2">
+
+            </div>
+        </div>
+        <!--TRES-->
+
+        <div class="ui-grid ui-grid-responsive">
+            <div class="ui-grid-row" style="padding-top: 100px">
+                <div class="ui-grid-col-2"></div>
+                <ui:repeat value="#{gerenciadorConteudoBean.fotos}" var="foto">
+                    <div class="ui-grid-col-1" style="text-align: center" >
+                        <h:panelGrid columns="1" style="text-align: center">
+                            <h:link outcome="/pesquisa?profissao=#{foto.titulo}">
+                               <img  src="data:#{foto.imagem.contentType};base64,#{foto.imagem.base64Encod}" style="width: 40%; border-radius: 50%"/>
+                               
+                            </h:link>
+                            
+                             <!--<h:graphicImage library="images/profissoes" name="unhas600.jpg" style="width: 40%; border-radius: 50%"/>-->
+                             <h:outputText value="#{foto.titulo}"/>
+                        </h:panelGrid>
+                       
+                    </div>
+                </ui:repeat>
+                <div class="ui-grid-col-2"></div>
+                
+            </div>
+        </div>
+    </div>
+
+</ui:composition>
+
