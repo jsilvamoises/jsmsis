@@ -5,88 +5,118 @@
  */
 package repository;
 
+import interfaces.InterfaceDao;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import model.Endereco;
-import util.FacesUtil;
-import util.JpaUtil;
+import org.hibernate.Session;
+import org.hibernate.criterion.DetachedCriteria;
+import dao.Dao;
+import model.PessoaFisica;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
  * @author MOISES
  */
-public class EnderecoRepository implements Serializable {
+public class EnderecoRepository implements Serializable, interfaces.InterfaceDao {
+    
+     private InterfaceDao<Endereco> Dao() {
+        InterfaceDao<Endereco> dao = new Dao<>(Endereco.class);
+        return dao;
+    }
+     
+    public List<Endereco> enderecoPorUsuario(PessoaFisica  pessoa){
+        DetachedCriteria criteria = DetachedCriteria.forClass(Endereco.class);
+        criteria.add(Restrictions.eq("pessoa", pessoa));
+        return Dao().getEntitiesByDetachetCriteria(criteria);
+    }
 
-    public boolean save(Endereco objeto) {
-        EntityManager manager = JpaUtil.getEntityManager();
-        try {
-            
-            manager.getTransaction().begin();
-            if(objeto.getId()!=null){
-                manager.persist(objeto);
-                FacesUtil.addInfoMessage("Salvo com sucesso!!!");
-            }else{
-                manager.refresh(objeto);
-                FacesUtil.addInfoMessage("Atualizado com sucesso!!!");
-            }
-            
-            manager.getTransaction().commit();
-            
-            return true;
-        } catch (Exception e) {
-            FacesUtil.addInfoMessage("Erro"+e);
-            return false;
-        }finally{
-            manager.close();
-        }
+    @Override
+    public boolean save(Object entity) {
+        return Dao().save((Endereco)entity);
+    }
 
+    @Override
+    public boolean saveOrUpdate(Object entity) {
+        return Dao().saveOrUpdate((Endereco)entity);
     }
-    
-    public Endereco findById(Long id){
-        EntityManager manager = JpaUtil.getEntityManager();
-        try {
-            return manager.find(Endereco.class, id);
-        } catch (Exception e) {
-            return null;
-        }finally{
-            manager.close();
-        }
+
+    @Override
+    public boolean update(Object entity) {
+        return Dao().update((Endereco)entity);
     }
-    
-    public boolean delete(Endereco obj){
-        boolean result= false;
-        EntityManager manager = JpaUtil.getEntityManager();
-        try {
-            Endereco u = manager.find(Endereco.class, obj.getId());
-            if(u!=null){
-                manager.remove(u);
-                result = true;
-                FacesUtil.addInfoMessage("Excluído com sucesso!!!");                
-            }else{
-                FacesUtil.addInfoMessage("Objeto não encontrado para exclusão!!!"); 
-            }
-            
-        } catch (Exception e) {
-            
-        }finally{
-            manager.close();
-        }
-        return result;
+
+    @Override
+    public boolean remove(Object entity) {
+        
+        return Dao().remove((Endereco)entity);
     }
-    
-    
-    public List<Endereco> getEnderecos(){
-        EntityManager manager = JpaUtil.getEntityManager();
-        try {
-            Query q = manager.createQuery("FROM Endereco U ORDER BY U.id desc", Endereco.class);
-            
-            return q.setMaxResults(1000).getResultList();
-        } catch (Exception e) {
-            return null;
-        }finally{
-            manager.close();
-        }
+
+    @Override
+    public boolean merge(Object entity) {
+        return Dao().merge((Endereco)entity);
     }
+
+    @Override
+    public Object getEntity(Serializable id) {
+        return Dao().getEntity(id);
+    }
+
+    @Override
+    public Object getEntityByDetachedCriteria(DetachedCriteria criteria) {
+        return Dao().getEntityByDetachedCriteria(criteria);
+    }
+
+    @Override
+    public List getEntities() {
+        return Dao().getEntities();
+    }
+
+    @Override
+    public List getEntitiesTop(int top, String campo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List getEntitiesByDetachetCriteria(DetachedCriteria criteria) {
+        return Dao().getEntitiesByDetachetCriteria(criteria);
+    }
+
+    @Override
+    public List getEntitiesByQuery(String query) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void commit(Session session) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void rollback(Session session) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void begin(Session session) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Session getSession() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List getTop(int totalRest, String query) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List entitiesTopByDetachedCriteria(int max, DetachedCriteria criteria) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

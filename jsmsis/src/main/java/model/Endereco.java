@@ -57,9 +57,9 @@ public class Endereco implements Serializable {
     @Column(name="endereco_observacao",  length = 255)
     private String observacao;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @ForeignKey(name = "FK_ENDERECO_PESSOA")
-    @JoinColumn(name="endereco_pessoa_id")    
+    @JoinColumn(name="pessoa_id")    
     private PessoaFisica pessoa;
     
     //CONTRUTOR

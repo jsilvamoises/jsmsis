@@ -38,11 +38,11 @@ public class EnderecoBean implements Serializable{
     }
     
     public void delete(){
-        repository.delete(endereco);
+        repository.remove(endereco);
     }
     
     public void pesquisarTodos(){
-        enderecos = repository.getEnderecos();
+        enderecos = repository.getEntities();
     }
 
     public Endereco getEndereco() {

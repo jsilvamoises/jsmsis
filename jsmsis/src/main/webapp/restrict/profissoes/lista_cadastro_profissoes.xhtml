@@ -20,12 +20,12 @@
     <h:body>
         <h:form>
             <nav>
-                <ui:include src="menu.xhtml"/>
+                <ui:include src="../menu.xhtml"/>
             </nav>
             <p:toolbar  class="toolbar-header">
                 <f:facet name="left" >
                     <h1>Lista de Fotos e profissões</h1>
-                    <p:button value="Novo" outcome="/restrict/cadastro_fotos_profissoes"/>
+                    <p:button value="Novo" outcome="/restrict/profissoes/cadastro_fotos_profissoes"/>
                 </f:facet>
                 <f:facet name="right">
                     
@@ -41,7 +41,7 @@
                         <h:outputText value="Aparece na primeira pagina #{fotos.isFistPage==true?'[ Sim ]':'[ Não ]'}"/>
                         <h:outputText value="#{fotos.texto}" escape="false"/>
                     </h:panelGrid>
-                    <p:button value="Editar" icon="ui-icon-pencil" outcome="/restrict/cadastro_fotos_profissoes">
+                    <p:button value="Editar" icon="ui-icon-pencil" outcome="/restrict/profissoes/cadastro_fotos_profissoes">
                         <f:param name="id" value="#{fotos.id}"/>
                     </p:button>
                     

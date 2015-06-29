@@ -9,63 +9,63 @@ import dao.Dao;
 import interfaces.InterfaceDao;
 import java.io.Serializable;
 import java.util.List;
+import model.Mensagem;
 import model.Usuario;
 import org.hibernate.Session;
-import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 /**
  *
  * @author MOISES
  */
-public class UsuarioRepository implements Serializable, interfaces.InterfaceDao {
-
-    private InterfaceDao<Usuario> Dao() {
-        InterfaceDao<Usuario> dao = new Dao<>(Usuario.class);
+public class MensagemRepository implements Serializable, interfaces.InterfaceDao {
+    
+    private InterfaceDao<Mensagem> Dao() {
+        InterfaceDao<Mensagem> dao = new Dao<>(Mensagem.class);
         return dao;
     }
 
     @Override
     public boolean save(Object entity) {
-        return Dao().save((Usuario) entity);
+        return Dao().save((Mensagem)entity);
     }
 
     @Override
     public boolean saveOrUpdate(Object entity) {
-        return Dao().saveOrUpdate((Usuario) entity);
+        return Dao().saveOrUpdate((Mensagem)entity);
     }
 
     @Override
     public boolean update(Object entity) {
-        return Dao().update((Usuario) entity);
+       return Dao().update((Mensagem)entity);
     }
 
     @Override
     public boolean remove(Object entity) {
-        return Dao().remove((Usuario) entity);
+        return Dao().remove((Mensagem)entity);
     }
 
     @Override
     public boolean merge(Object entity) {
-        return Dao().merge((Usuario) entity);
+        return Dao().merge((Mensagem)entity);
     }
 
     @Override
     public Object getEntity(Serializable id) {
         return Dao().getEntity(id);
     }
-    
-    public Usuario getUsuarioByLogin(String value){
-        DetachedCriteria criteria = DetachedCriteria.forClass(Usuario.class);
-        criteria.add(Restrictions.ilike("login", value, MatchMode.EXACT));
-        return Dao().getEntityByDetachedCriteria(criteria);
-    }
 
     @Override
     public Object getEntityByDetachedCriteria(DetachedCriteria criteria) {
         return Dao().getEntityByDetachedCriteria(criteria);
+    }
+    
+    
+    public List<Mensagem> mensagensUsuario(Usuario u){
+        DetachedCriteria criteria = DetachedCriteria.forClass(Mensagem.class);
+        criteria.add(Restrictions.eq("from", u));
+        return Dao().getEntitiesByDetachetCriteria(criteria);
     }
 
     @Override
@@ -80,7 +80,7 @@ public class UsuarioRepository implements Serializable, interfaces.InterfaceDao 
 
     @Override
     public List getEntitiesByDetachetCriteria(DetachedCriteria criteria) {
-        return Dao().getEntitiesByDetachetCriteria(criteria);
+         return Dao().getEntitiesByDetachetCriteria(criteria);
     }
 
     @Override
@@ -90,50 +90,33 @@ public class UsuarioRepository implements Serializable, interfaces.InterfaceDao 
 
     @Override
     public void commit(Session session) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session.getTransaction().commit();
     }
 
     @Override
     public void rollback(Session session) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session.getTransaction().rollback();
     }
 
     @Override
     public void begin(Session session) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        session.getTransaction().begin();
     }
 
     @Override
     public Session getSession() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         return Dao().getSession();
     }
 
     @Override
     public List getTop(int totalRest, String query) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    public boolean validarSenha(Usuario usuario) {
-        DetachedCriteria criteria = DetachedCriteria.forClass(Usuario.class);
-
-        Criterion loginSenha = Restrictions.and(
-                Restrictions.ilike("login", usuario.getLogin()),
-                Restrictions.like("senha", usuario.getSenha()));
-        
-        Criterion emailSenha = Restrictions.and(
-                Restrictions.ilike("email", usuario.getLogin()),
-                Restrictions.like("senha", usuario.getSenha()));
-        
-        criteria.add(Restrictions.or(loginSenha, emailSenha));
-        
-        // SELECT * FROM USUARIO AS U WHERE (U.LOGIN LIKE LOWER('MOISES') AND U.SENHA LIKE '123456')OR(U.EMAIL LIKE LOWER('MOISES') AND U.SENHA LIKE '123456')
-       
-        return Dao().getEntityByDetachedCriteria(criteria) != null;
-    }
+    
+    
 
     @Override
     public List entitiesTopByDetachedCriteria(int max, DetachedCriteria criteria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

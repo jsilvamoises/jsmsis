@@ -8,27 +8,28 @@ package converter;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.FacesConverter;
-import model.Usuario;
-import repository.UsuarioRepository;
+import javax.persistence.EntityManager;
+import model.Mensagem;
+import repository.MensagemRepository;
+import util.JpaUtil;
 
 /**
  *
  * @author MOISES
  */
-@FacesConverter(forClass = Usuario.class)
-public class UsuarioConverter implements javax.faces.convert.Converter {
+@FacesConverter(forClass = Mensagem.class)
+public class MensagemConverter implements javax.faces.convert.Converter {
 
-    UsuarioRepository repository = new UsuarioRepository();
+    MensagemRepository repository = new MensagemRepository();
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        Usuario objeto = null;
-        
+        Mensagem objeto = null;
+       
         if (value != null) {
             try {
-                
-               // Long id = new Long(value);
-                objeto = repository.getUsuarioByLogin(value);
+                Long id = new Long(value);
+                objeto = (Mensagem) repository.getEntity(id);
             } catch (Exception e) {
                 // FacesUtil.addErrorMessage(e.getCause().getMessage());
             } finally {
@@ -42,7 +43,7 @@ public class UsuarioConverter implements javax.faces.convert.Converter {
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
         if (value != null) {
-            Long id = ((Usuario) value).getId();
+            Long id = ((Mensagem) value).getId();
             return String.valueOf(id);
         }
         return "";

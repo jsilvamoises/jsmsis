@@ -48,6 +48,7 @@ public interface InterfaceDao<T> {
     public Session getSession();
 
     List<T> getTop(int totalRest, String query);
-   
+
+    public List<T> entitiesTopByDetachedCriteria(int max, DetachedCriteria criteria);
 
 }

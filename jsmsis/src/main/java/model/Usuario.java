@@ -60,10 +60,10 @@ public class Usuario  implements Serializable{
     @Column(name = "usuario_status", nullable = false)
     private StatusUsuario statusUsuario;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_pessoa_id")
-    @ForeignKey(name = "FK_USUARIO_PESSOA")
-    private PessoaFisica pessoa;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "usuario_pessoa_id")
+//    @ForeignKey(name = "FK_USUARIO_PESSOA")
+//    private PessoaFisica pessoa;
     
     @OneToMany(mappedBy = "usuario")
     private List<Anuncio> anuncios = new ArrayList<>();
@@ -170,13 +170,13 @@ public class Usuario  implements Serializable{
         return String.valueOf(id);
     }
 
-    public PessoaFisica getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(PessoaFisica pessoa) {
-        this.pessoa = pessoa;
-    }
+//    public PessoaFisica getPessoa() {
+//        return pessoa;
+//    }
+//
+//    public void setPessoa(PessoaFisica pessoa) {
+//        this.pessoa = pessoa;
+//    }
 
     public List<Anuncio> getAnuncios() {
         return anuncios;

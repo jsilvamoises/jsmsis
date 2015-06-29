@@ -78,6 +78,13 @@ public class PessoaFisicaRepository implements Serializable, interfaces.Interfac
         }
 
     }
+    
+    
+   public PessoaFisica pessoaByUsuario(Usuario u){
+       DetachedCriteria criteria = DetachedCriteria.forClass(PessoaFisica.class);
+       criteria.add(Restrictions.eq("usuario", u));
+       return Dao().getEntityByDetachedCriteria(criteria);
+   }
 
     @Override
     public boolean saveOrUpdate(Object o) {

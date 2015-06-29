@@ -15,14 +15,14 @@
     <h:body>
         <h:form id="frm" enctype="multipart/form-data">
             <nav>
-                <ui:include src="../restrict/menu.xhtml"/>
+                <ui:include src="../menu.xhtml"/>
             </nav>
             
             <p:growl id="messages" showDetail="true" />
             <p:toolbar class="toolbar-header" >
                 <f:facet name="left" >
                     <h1>Cadastro de Fotos e profissões</h1>
-                    <p:button value="Listagem" outcome="/restrict/lista_cadastro_profissoes"/>
+                    <p:button value="Listagem" outcome="/restrict/profissoes/lista_cadastro_profissoes"/>
                 </f:facet>
                 <f:facet name="right">
                     

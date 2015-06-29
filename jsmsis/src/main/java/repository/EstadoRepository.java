@@ -191,4 +191,9 @@ public class EstadoRepository implements Serializable, interfaces.InterfaceDao {
 //            manager.close();
 //        }
 //    }
+
+    @Override
+    public List entitiesTopByDetachedCriteria(int max, DetachedCriteria criteria) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

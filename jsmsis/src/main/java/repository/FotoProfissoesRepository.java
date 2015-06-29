@@ -68,9 +68,9 @@ public class FotoProfissoesRepository implements Serializable, interfaces.Interf
     
     public List Top8(){
         DetachedCriteria criteria = DetachedCriteria.forClass(FotoProfissoes.class);
-        Criterion criterio = Restrictions.eq("iisFistPage", true);
-        criteria.add(criterio);       
-        return Dao().getEntitiesByDetachetCriteria(criteria);
+        
+        criteria.add(Restrictions.eq("isFistPage", true));       
+        return Dao().entitiesTopByDetachedCriteria(8, criteria);
     }
 
     @Override
@@ -110,6 +110,11 @@ public class FotoProfissoesRepository implements Serializable, interfaces.Interf
 
     @Override
     public List getTop(int totalRest, String query) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List entitiesTopByDetachedCriteria(int max, DetachedCriteria criteria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

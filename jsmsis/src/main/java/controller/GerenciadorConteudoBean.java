@@ -51,7 +51,7 @@ public class GerenciadorConteudoBean implements Serializable {
 
     public GerenciadorConteudoBean() {
         profissoesRepository = new FotoProfissoesRepository();
-        fotos = profissoesRepository.getEntities();
+        fotos = profissoesRepository.Top8();
         preecherFotos();
     }
 

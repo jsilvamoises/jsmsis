@@ -17,7 +17,7 @@
             <!--TOPO DA PAGINA-->
             <ui:include src="WEB-INF/template/topo.xhtml"/>
             <!--AJAXSTATUS-->
-            <ui:include src="WEB-INF/template/ajaxstatus.xhtml"/>
+            <!--<ui:include src="WEB-INF/template/ajaxstatus.xhtml"/>-->
             <!--ULTIMOS CADASTRADOS-->
             <ui:include src="WEB-INF/template/ultimos_cadastrados.xhtml"/>
             <!--PAGINA-->
@@ -26,6 +26,7 @@
                 <!--DADOS PESSOAIS-->
                 <h:outputText  value="Dados Pessoais" style="margin-top: 60px"/>
                 <p:fieldset style="margin-bottom: 20px">
+                    <p:messages id="msgdata"/>
                     <h:panelGrid columns="2" columnClasses="label, campo" rowClasses="linhas">
                         <h:outputLabel value="Nome completo" for="nome"/>
                         <p:inputText id="nome" size="60" value="#{pessoaFisicaBean.pessoaFisica.nome}"/>
@@ -49,11 +50,12 @@
 
                 <!--CONTATO-->
                 <h:outputText  value="Contato"/>
+                <p:messages id="msgemail"/>
                 <p:fieldset style="margin-bottom: 20px">
                     <h:panelGrid columns="2" columnClasses="label, campo" rowClasses="linhas">
                         <h:outputLabel value="E-mail" for="email"/>
                         <p:inputText id="email" size="60" value="#{pessoaFisicaBean.pessoaFisica.usuario.email}" >
-                            <p:ajax process="@this" listener="#{pessoaFisicaBean.validarEmail()}" update="email"/>
+                            <p:ajax process="@this" listener="#{pessoaFisicaBean.validarEmail()}" update="email, msgemail, msgdata"/>
                         </p:inputText>
 
                         <h:outputLabel value="Telefone Fixo" for="ddd"/>
@@ -74,11 +76,12 @@
 
                 <!--ENDERECO-->
                 <h:outputText  value="Endereco"/>
-                <p:fieldset style="margin-bottom: 20px">                    
+                <p:fieldset style="margin-bottom: 20px"> 
+                    <p:messages id="msgendereco"/>
                     <h:panelGrid columns="4" columnClasses="label, campo, label, campo" rowClasses="linhas">
                         <h:outputLabel value="Cep" for="cep"/>
-                        <p:inputMask mask="99.999-999" id="cep" size="10" value="#{pessoaFisicaBean.endereco.cep}">
-                            <p:ajax process="@this" listener="#{pessoaFisicaBean.buscarCep()}" update="cep, logradouro, bairro, cidade, estado"/>
+                        <p:inputMask mask="99.999-999" id="cep" size="10" value="#{pessoaFisicaBean.endereco.cep}" autocomplete="false">
+                            <p:ajax process="@this" listener="#{pessoaFisicaBean.buscarCep()}" update="cep, logradouro, bairro, cidade, estado, msgendereco"/>
                         </p:inputMask> 
 
                         <h:inputHidden/>

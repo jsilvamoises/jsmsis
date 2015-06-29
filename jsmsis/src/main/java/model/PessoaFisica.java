@@ -15,6 +15,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -59,12 +60,11 @@ public class PessoaFisica implements Serializable{
     @Column(name = "pessoa_cpf", nullable = false)
     private String cpf;
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pessoa_enderecos_id")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER, mappedBy = "pessoa")
     private List<Endereco>  enderecos = new ArrayList<>();
      
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pessoa_fisica_usuario_id")
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "usuario_id")
      private Usuario usuario;
     
     @Column(name = "pessoa_profissao")

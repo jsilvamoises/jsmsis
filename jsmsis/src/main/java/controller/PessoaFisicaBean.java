@@ -85,6 +85,7 @@ public class PessoaFisicaBean implements Serializable {
 
     public void save() {
         pessoaFisica.getEnderecos().add(endereco);
+        endereco.setPessoa(pessoaFisica);
         if (repository.save(pessoaFisica)) {
 
             clear();

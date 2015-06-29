@@ -149,7 +149,7 @@ public class CepBean implements Serializable {
         System.err.println(bc.getCidade());// imprime a cidade
         System.err.println(bc.getUf());// imprime o uf
         System.err.println(bc.getCep());// imprime o cep
-        // System.err.println(bc.getDoc());//imprime o html da pagina
+         System.err.println(bc.getDoc());//imprime o html da pagina
     }
 
 }

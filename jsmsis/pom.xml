@@ -51,8 +51,17 @@
         <dependency>  
             <groupId>org.primefaces</groupId>  
             <artifactId>primefaces</artifactId>  
-            <version>5.2</version>  
+            <version>5.2</version>
         </dependency> 
+            
+        <!--PRIMEFACES TEMAS-->
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>all-themes</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+		  
+        
         <!--PRIMEUI-->
         <dependency>
             <groupId>org.webjars</groupId>
