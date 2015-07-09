@@ -8,31 +8,10 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <f:view>
-        <div class="ui-grid ui-grid-responsive">
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-1">
-                    dfasdfas
-                </div>
-                <div class="ui-grid-col-1">
-                    dfasdfas
-                </div>
-                <div class="ui-grid-col-1">1
-                    
-                    dfadfsaf
-                </div>
-                <div class="ui-grid-col-1">1</div>
-                <div class="ui-grid-col-1">1</div>
-                <div class="ui-grid-col-1">1</div>
-                <div class="ui-grid-col-1">1</div>
-                <div class="ui-grid-col-1">1</div>
-                <div class="ui-grid-col-1">1</div>
-                <div class="ui-grid-col-1">1</div>
-                <div class="ui-grid-col-1">1</div>
-                <div class="ui-grid-col-1">1</div>
-            </div>
-        </div>
-            </f:view>
+        <h:form id="frm">
+            <p:commandButton value="Meter Bala" action="#{insertPessoa.inserir()}" update=":frm:i"/>
+            <h:outputText id="i" value="#{insertPessoa.i}"/>
+        </h:form>
     </h:body>
 </html>
 
